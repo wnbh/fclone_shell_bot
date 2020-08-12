@@ -22,6 +22,7 @@ else
 echo -e "▣▣▣▣▣▣▣任务信息▣▣▣▣▣▣▣\n" 
     echo -e "┋资源名称┋:$rootname \n"
     echo -e "┋资源地址┋:$link \n"
+    echo -e "┋转存地址┋:$gd_name \n"
 fi
 echo -e "▣▣▣▣▣▣▣执行转存▣▣▣▣▣▣▣"
 fclone copy "$fclone_name":{$link} "$fclone_name":{$gd_id}/"$rootname" --drive-server-side-across-configs --stats=1s --stats-one-line -P --checkers="$fq_chercker" --transfers="$fq_transfer" --drive-pacer-min-sleep="$fq_min_sleep"ms --drive-pacer-burst="$fq_BURST" --min-size "$fq_min_size"M --check-first --log-level=ERROR --log-file=/root/fclone_shell_bot/log/fqcopy1.log
