@@ -23,6 +23,8 @@ Tip="[${Green_font_prefix}注意${Font_color_suffix}]"
 # ★★★安装shellbot环境-已完成★★★
 install_exp() {
     cd ~
+    npm install -g n
+    n latest
     apt update -y &&　apt upgrade -y
     apt install wget curl screen git tree vim nano tmux htop sudo python3-distutils -y
     apt install python3 python3-pip -y
@@ -44,11 +46,11 @@ install_shellbot() {
     if [[ "$botstats" =~ "no such file" ]] ; then
     rm -rf ~/fclone_shell_bot
     git clone https://git.io/JJmMw
-    cd ~/fclone_shell_bot
+    cd /root/fclone_shell_bot
     npm install
     echo -e "shellbot已安装更新为最新版本" && exit
     else
-    cd ~/fclone_shell_bot
+    cd /root/fclone_shell_bot
     git pull
     npm install
     echo -e "shellbot已安装更新为最新版本" 
