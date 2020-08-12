@@ -13,23 +13,23 @@ source /root/fclone_shell_bot/myfc_config.ini
 
 clear
 echo -e " 选择你需要备份的盘
-[1]. ADV盘
-[2]. MDV盘
-[3]. BOOK盘
+[1]. "$pan1_name"
+[2]. "$pan2_name"
+[3]. "$pan3_name"
 [4]. 退出"
-read -p "请输入数字 [1-5]:" num
+read -p "请输入数字 [1-4]:" num
 case "$num" in
 1)
-    echo -e "★★★ 1#ADV盘 ★★★"
-    myid="$jav_id"
+    echo -e "★★★ 1#"$pan1_name" ★★★"
+    myid="$pan1_id"
     ;;
 2)
-    echo -e "★★★ 2#MDV盘 ★★★"
-    myid="$mdv_id"
+    echo -e "★★★ 2#"$pan2_name" ★★★"
+    myid="$pan2_id"
     ;;
 3)
-    echo -e "★★★ 3#BOOK盘 ★★★"
-    myid="$book_id"
+    echo -e "★★★ 3#"$pan3_name" ★★★"
+    myid="$pan3_id"
     ;;
 4)
     exit
