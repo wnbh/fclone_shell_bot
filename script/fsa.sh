@@ -13,6 +13,6 @@ if [ x$xsa_sum = x0 ];then
 elif [ x$sa_sum = x0 ];then
   echo -e "所有sa账号均无效"
 else
-  echo -e "检测到无效sa账号 $xsa_sum $a 个,已移至：$safolder/invalid"
+  echo -e "检测到无效sa账号 $xsa_sum 个,已移至：$safolder/invalid"
 fi
 echo -e "检查完成！！！"
