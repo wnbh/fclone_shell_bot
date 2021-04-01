@@ -595,6 +595,25 @@ bot.command("fs", function (msg, reply, next) {
   });
 });
 
+// 检测sa有效性bot command = "/fsa"
+bot.command("fsa", function (msg, reply, next) {
+
+  if (msg.context.command) {
+    var command = msg.context.command;
+    return reply.text("一条命令正在运行中.");
+  }
+
+  if (msg.editor) msg.editor.detach();
+  msg.editor = null;
+
+// 检测sa有效性"/fsa" command that should be used
+  var args = "/root/fclone_shell_bot/script/fsa.sh";
+  msg.context.command = new Command(reply, msg.context, args);
+  msg.context.command.on("exit", function() {
+    msg.context.command = null;
+  });
+});
+
 // 自动整理bot command = "/fsingle"
 bot.command("fsingle", function (msg, reply, next) {
 
