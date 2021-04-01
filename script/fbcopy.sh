@@ -10,28 +10,26 @@
 #=============================================================
 
 source /root/fclone_shell_bot/myfc_config.ini
-: > /root/fclone_shell_bot/log/fbcopy.log
-: > /root/fclone_shell_bot/log/fbsync.log
 
 clear
 echo -e " 选择你需要备份的盘
-[1]. ADV盘
-[2]. MDV盘
-[3]. BOOK盘
+[1]. "$pan1_name"
+[2]. "$pan2_name"
+[3]. "$pan3_name"
 [4]. 退出"
-read -p "请输入数字 [1-5]:" num
+read -p "请输入数字 [1-4]:" num
 case "$num" in
 1)
-    echo -e "★★★ 1#ADV盘 ★★★"
-    myid="$jav_id"
+    echo -e "★★★ 1#"$pan1_name" ★★★"
+    myid="$pan1_id"
     ;;
 2)
-    echo -e "★★★ 2#MDV盘 ★★★"
-    myid="$mdv_id"
+    echo -e "★★★ 2#"$pan2_name" ★★★"
+    myid="$pan2_id"
     ;;
 3)
-    echo -e "★★★ 3#BOOK盘 ★★★"
-    myid="$book_id"
+    echo -e "★★★ 3#"$pan3_name" ★★★"
+    myid="$pan3_id"
     ;;
 4)
     exit
@@ -48,6 +46,6 @@ else
 link=${link#*id=};link=${link#*folders/};link=${link#*d/};link=${link%?usp*}
 fi
 echo -e "▣▣▣▣▣▣执行同步▣▣▣▣▣▣"
-fclone sync "$fclone_name1":{$myid} "$fclone_name1":{$link} --drive-server-side-across-configs --drive-use-trash=false --stats=1s --stats-one-line -P --checkers="$fb_chercker" --transfers="$fb_transfer" --drive-pacer-min-sleep="$fb_min_sleep"ms --drive-pacer-burst="$fb_BURST" --min-size "$fb_min_size"M --check-first --log-level=DEBUG --log-file=/root/fclone_shell_bot/log/fbsync.log
+fclone sync "$fclone_name":{$myid} "$fclone_name":{$link} --drive-server-side-across-configs --stats=1s --stats-one-line -P --checkers="$fb_chercker" --transfers="$fb_transfer" --drive-pacer-min-sleep="$fb_min_sleep"ms --drive-pacer-burst="$fb_BURST" --min-size "$fb_min_size"M --check-first --log-level="$fb_log_level" --log-file=/root/fclone_shell_bot/log/fbsync.log
 echo -e "|▉▉▉▉▉▉▉▉▉▉▉▉|100%  同步完毕"
 exit

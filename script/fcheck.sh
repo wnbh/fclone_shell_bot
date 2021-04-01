@@ -24,5 +24,5 @@ else
 link2=${link2#*id=};link2=${link2#*folders/};link2=${link2#*d/};link2=${link2%?usp*}
 fi
 echo -e "▣▣▣▣▣▣正在执行比对▣▣▣▣▣▣"
-fclone check "$fclone_name2":{$link1} "$fclone_name2":{$link2} --one-way --no-traverse --checkers="$fs_chercker" --check-first
+fclone check "$fclone_name":{$link1} "$fclone_name":{$link2} --fast-list --disable listr --stats=1s --stats-one-line -vP --checkers="$fs_chercker" --transfers="$fs_transfer" --drive-pacer-min-sleep="$fs_min_sleep" --drive-pacer-burst="$fs_BURST" --check-first
 echo -e "|▉▉▉▉▉▉▉▉▉▉▉▉|100%  比对完毕"
